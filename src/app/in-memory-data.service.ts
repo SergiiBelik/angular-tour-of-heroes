@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { InMemoryDB } from 'angular-in-memory-web-api';
+import { InMemoryDbService } from 'angular-in-memory-web-api';
 import { Hero } from './hero'
 
 @Injectable({
@@ -7,7 +7,7 @@ import { Hero } from './hero'
 })
 export class InMemoryDataService {
   
-  createDd(){
+  createDb(){
     const heroes: Hero[] = [
       {id: 11, name: 'test11'},
       {id: 12, name: 'test12'},
