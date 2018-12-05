@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Location } from '@angular/common'
+import { Location } from '@angular/common';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
+
 import { Hero } from '../hero';
 import { HeroService } from '../hero.service'
 
@@ -17,15 +19,16 @@ export class HeroDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private location: Location,
-    private heroService: HeroService
-    ) { }
+    private heroService: HeroService,
+    private dialogRef: MatDialogRef<HeroDetailComponent>,
+    @Inject(MAT_DIALOG_DATA) data) { }
 
   ngOnInit(): void {
     this.getHero()
   }
   
   getHero(): void{
-    const id = +this.route.snapshot.paramMap.get('id');
+    const id = 11;
     this.heroService.getHero(id)
       .subscribe(hero => this.hero = hero)
   }

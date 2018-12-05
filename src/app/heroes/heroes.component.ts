@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog, MatDialogConfig } from '@angular/material';
 import { Hero } from '../hero';
-import { HeroService } from '../hero.service'
+import { HeroService } from '../hero.service';
+import { HeroDetailComponent } from '../hero-detail/hero-detail.component'
 
 @Component({
   selector: 'app-heroes',
@@ -11,8 +13,8 @@ export class HeroesComponent implements OnInit {
 
   heroes: Hero[];
 
-  constructor(private heroService: HeroService) { 
-  }
+  constructor(private heroService: HeroService,
+              private dialog: MatDialog) {}
 
   ngOnInit() {
     this.getHeroes();
@@ -35,6 +37,16 @@ export class HeroesComponent implements OnInit {
   delete(hero: Hero): void {
     this.heroes = this.heroes.filter(h => h !== hero);
     this.heroService.deleteHero(hero).subscribe()
+  }
+  
+  openDialog(){
+    const dialogConfig = new MatDialogConfig()
+    
+    dialogConfig.data = {
+      id: 11
+    }
+    
+    this.dialog.open(HeroDetailComponent, dialogConfig)
   }
   
 }
