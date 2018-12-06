@@ -21,15 +21,14 @@ export class HeroDetailComponent implements OnInit {
     private location: Location,
     private heroService: HeroService,
     private dialogRef: MatDialogRef<HeroDetailComponent>,
-    @Inject(MAT_DIALOG_DATA) data) { }
+    @Inject(MAT_DIALOG_DATA) public data) { }
 
   ngOnInit(): void {
     this.getHero()
   }
   
   getHero(): void{
-    const id = 11;
-    this.heroService.getHero(id)
+    this.heroService.getHero(this.data.id)
       .subscribe(hero => this.hero = hero)
   }
   

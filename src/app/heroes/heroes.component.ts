@@ -39,14 +39,20 @@ export class HeroesComponent implements OnInit {
     this.heroService.deleteHero(hero).subscribe()
   }
   
-  openDialog(){
+  openDialog(hero: Hero){
     const dialogConfig = new MatDialogConfig()
     
     dialogConfig.data = {
-      id: 11
+      id: hero.id
     }
     
-    this.dialog.open(HeroDetailComponent, dialogConfig)
+    const dialogRef = this.dialog.open(HeroDetailComponent, dialogConfig)
+    
+    dialogRef.afterClosed().subscribe(
+            result => {
+                this.getHeroes()
+            }
+            )
   }
   
 }
