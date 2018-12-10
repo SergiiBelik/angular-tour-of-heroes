@@ -7,7 +7,7 @@
 }
 .heroes li {
   position: relative;
-  cursor: pointer;
+  /*cursor: pointer;*/
   background-color: #EEE;
   margin: .5em;
   padding: .3em 0;
@@ -66,8 +66,9 @@ button:hover {
 
 button.delete {
   position: relative;
-  left: 194px;
-  top: -32px;
+  left: 10rem;
+  font-size: 18px;
+  margin: 0 10px;
   background-color: gray !important;
   color: white;
 }
