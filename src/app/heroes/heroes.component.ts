@@ -45,6 +45,7 @@ export class HeroesComponent implements OnInit {
     dialogConfig.data = {
       id: hero.id
     }
+    dialogConfig.width = '250px';
     
     const dialogRef = this.dialog.open(HeroDetailComponent, dialogConfig)
     
