@@ -27,7 +27,7 @@ export class HeroDetailModalComponent implements OnInit {
   }
 
   getHero(): void{
-    const id = +this.data.id
+    const id = this.data.id
     // console.log(id)
     this.heroService.getHero(id)
       .subscribe(hero => this.hero = hero)
@@ -39,7 +39,7 @@ export class HeroDetailModalComponent implements OnInit {
   }
 
   goBack(): void{
-    this.location.back()
+    this.dialogRef.close()
   }
 
 }
