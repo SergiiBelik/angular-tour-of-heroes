@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material';
 import { Hero } from '../hero';
 import { HeroService } from '../hero.service';
-import { HeroDetailComponent } from '../hero-detail/hero-detail.component'
+import { HeroDetailModalComponent } from '../hero-detail-modal/hero-detail-modal.component'
 
 @Component({
   selector: 'app-heroes',
@@ -47,7 +47,7 @@ export class HeroesComponent implements OnInit {
     }
     dialogConfig.width = '250px';
     
-    const dialogRef = this.dialog.open(HeroDetailComponent, dialogConfig)
+    const dialogRef = this.dialog.open(HeroDetailModalComponent, dialogConfig)
     
     dialogRef.afterClosed().subscribe(
             result => {
